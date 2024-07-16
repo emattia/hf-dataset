@@ -1,5 +1,4 @@
 from metaflow.decorators import StepDecorator
-from functools import wraps
 
 class huggingface_dataset_deco:
 
@@ -8,10 +7,6 @@ class huggingface_dataset_deco:
 
     def __call__(self, step_func):
 
-        @wraps(step_func)
-        def f(s):
-            step_func(s)
-        
         from metaflow import _huggingface_dataset, card, current
 
         _card = card(
